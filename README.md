@@ -17,6 +17,14 @@ ninchat is a real-time information retrieval system and search infrastructure fo
 - Hot search term statistics
 - Multiple match modes (exact, all terms, fuzzy)
 
+### Search Result Limits
+
+| User Role | Max Results |
+|-----------|-------------|
+| Guest (unauthenticated) | 100 |
+| Regular (logged in) | 1,000 |
+| Admin | 10,000 |
+
 ## Usage
 
 1. Obtain an API key from [ninchat](https://www.ninchat.cn)
