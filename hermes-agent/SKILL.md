@@ -75,6 +75,11 @@ ninchat_api_key=sk_ninso_xxxxx
 | `limit` | integer | 否 | 50 | 返回结果数 |
 | `api_key` | string | 是 | - | API 密钥 |
 
+> **搜索结果数限制**：实际返回结果数取决于用户角色 —
+> - **未登录用户**：最多 100 条
+> - **已登录普通用户**：最多 1000 条
+> - **管理员用户**：最多 10000 条
+
 ### Request Body（基础搜索）
 ```json
 {
