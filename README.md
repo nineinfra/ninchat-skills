@@ -11,19 +11,23 @@ Skills and integration guides for the ninchat real-time information retrieval sy
 
 ninchat is a real-time information retrieval system and search infrastructure for the AI era. It provides:
 
-- Full-text search across 50+ Chinese media outlets (Meilisearch-powered)
+- Full-text search across 50+ Chinese media outlets ([Meilishard](https://github.com/nineinfra/meilishard)-powered)
 - Hot news aggregation with topic grouping
 - AI-generated hot comments
 - Hot search term statistics
 - Multiple match modes (exact, all terms, fuzzy)
 
-### Search Result Limits
+### User Permissions
 
-| User Role | Max Results |
-|-----------|-------------|
-| Guest (unauthenticated) | 100 |
-| Regular (logged in) | 1,000 |
-| Admin | 10,000 |
+| User Type | Search Level | Rate Limit | Max Results |
+|-----------|-------------|------------|-------------|
+| **Anonymous** | basic (snippet) | 10/min | 50 |
+| **Regular** | basic (snippet) | 60/min | 100 |
+| **Group User** | **full (full text)** | 120/min | 200 |
+
+💬 **Group Users**: Scan the QR code below to join the WeChat group and get full search access (full article content), higher rate limits, and more results.
+
+![WeChat Group QR Code](wechat_group.png)
 
 ## Usage
 
