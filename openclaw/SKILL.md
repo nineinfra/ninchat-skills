@@ -15,7 +15,7 @@ category: Search & Information
 
 ## 主要功能
 
-- **搜索 API**: 基于 Meilisearch 的全文检索，支持 50+ 主流媒体
+- **搜索 API**: 基于 [Meilishard](https://github.com/nineinfra/meilishard) 的全文检索，支持 50+ 主流媒体
 - **热点新闻**: 基于爬取内容聚合，多源相似话题合并
 - **AI热评**: 基于热点新闻使用LLM生成深度评论
 - **热搜统计**: 基于用户搜索行为的热搜词统计
@@ -1176,7 +1176,7 @@ print(report)
 
 ## 搜索配置说明
 
-- **搜索引擎**: Meilisearch
+- **搜索引擎**: [Meilishard](https://github.com/nineinfra/meilishard)
 - **匹配模式**:
   - `exact`（默认）— 短语搜索，关键词必须连续按序出现
   - `all` — 所有查询词都必须出现在文档中（`matchingStrategy: "all"`），可乱序可间隔
