@@ -31,7 +31,7 @@ ninchat is a real-time information retrieval system and search infrastructure fo
 
 ## Usage
 
-1. Obtain an API key from [ninchat](https://www.ninchat.cn)
+1. Obtain an API key from [ninchat](https://ninchat.cpolar.top)
 2. Follow the skill guide for your platform (Hermes Agent or OpenClaw)
 3. Configure the environment variables and start searching
 

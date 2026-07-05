@@ -25,12 +25,12 @@ version: 1.2.0
 
 | 变量名 | 说明 | 示例值 | 必需 |
 |--------|------|--------|------|
-| `ninchat_base_url` | ninchat 后端 API 地址 | `https://www.ninchat.cn` | 否 |
+| `ninchat_base_url` | ninchat 后端 API 地址 | `https://ninchat-api.cpolar.top` | 否 |
 | `ninchat_api_key` | API Key，以 `sk_ninso_` 开头 | `sk_ninso_xxxxx` | 是 |
 
 ### 获取 API Key
 
-1. 访问 ninchat Web 界面 https://www.ninchat.cn
+1. 访问 ninchat Web 界面 https://ninchat.cpolar.top
 2. 登录后进入 **系统设置 → API Key**
 3. 点击 **创建新密钥**，复制生成的 `full_api_key`
 
@@ -41,7 +41,7 @@ version: 1.2.0
 在 Hermes Agent 的 `.env` 文件中添加：
 ```bash
 # ninchat 搜索 API 配置
-ninchat_base_url=https://www.ninchat.cn
+ninchat_base_url=https://ninchat-api.cpolar.top
 ninchat_api_key=sk_ninso_xxxxx
 ```
 
@@ -54,7 +54,7 @@ ninchat_api_key=sk_ninso_xxxxx
 
 ## 连接信息
 
-- **Base URL**: `ninchat_base_url`（默认 `https://www.ninchat.cn`）
+- **Base URL**: `ninchat_base_url`（默认 `https://ninchat-api.cpolar.top`）
 - **认证方式**: API Key 认证（`sk_ninso_` 开头）
 - **调用方式**: Python `requests` / `httpx`，或 Hermes 的 `execute_code` 工具
 - **数据格式**: JSON
@@ -127,7 +127,7 @@ def search_ninchat(query: str, limit: int = 10) -> Dict:
     Returns:
         搜索结果字典
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     NINCHAT_API_KEY = os.getenv("ninchat_api_key", "")
     
     if not NINCHAT_API_KEY:
@@ -174,7 +174,7 @@ def search_ninchat_detail(query: str, limit: int = 5) -> List[Dict]:
     Returns:
         包含完整内容的文章列表
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     NINCHAT_API_KEY = os.getenv("ninchat_api_key", "")
     
     if not NINCHAT_API_KEY:
@@ -226,7 +226,7 @@ def get_real_time_info(question: str) -> str:
     Returns:
         格式化的搜索结果摘要
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     NINCHAT_API_KEY = os.getenv("ninchat_api_key", "")
     
     if not NINCHAT_API_KEY:
@@ -270,7 +270,7 @@ print(get_real_time_info("今天有什么重要新闻？"))
 
 ### curl 示例
 ```bash
-curl -s https://www.ninchat.cn/api/search \
+curl -s https://ninchat-api.cpolar.top/api/search \
   -H "Content-Type: application/json" \
   -d '{"query": "最新新闻", "detail": true, "api_key": "sk_ninso_xxxxx"}'
 ```
@@ -346,7 +346,7 @@ curl -s https://www.ninchat.cn/api/search \
 ### Request 示例
 
 ```bash
-curl -s "https://www.ninchat.cn/api/hot-news?limit=10&days=7"
+curl -s "https://ninchat-api.cpolar.top/api/hot-news?limit=10&days=7"
 ```
 
 ### Response 格式
@@ -391,7 +391,7 @@ def get_hot_news(limit: int = 10, days: int = 7) -> List[Dict]:
     Returns:
         热点新闻列表
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     
     try:
         resp = requests.get(
@@ -441,7 +441,7 @@ print(format_hot_news_summary())
 ### Request 示例
 
 ```bash
-curl -s "https://www.ninchat.cn/api/ai-hot-comments?limit=10&days=7"
+curl -s "https://ninchat-api.cpolar.top/api/ai-hot-comments?limit=10&days=7"
 ```
 
 ### Response 格式
@@ -487,7 +487,7 @@ def get_ai_hot_comments(limit: int = 10, days: int = 7):
     Returns:
         (评论列表, AI 是否启用)
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     
     try:
         resp = requests.get(
@@ -550,7 +550,7 @@ print(format_ai_hot_comments())
 ### Request 示例
 
 ```bash
-curl -s "https://www.ninchat.cn/api/hot-search?limit=20&time_range=today"
+curl -s "https://ninchat-api.cpolar.top/api/hot-search?limit=20&time_range=today"
 ```
 
 ### Response 格式
@@ -582,7 +582,7 @@ import requests
 import os
 
 def get_hot_search(limit: int = 20, time_range: str = "today") -> list:
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     
     try:
         resp = requests.get(
@@ -619,7 +619,7 @@ def hot_news_and_search_agent() -> str:
     Returns:
         格式化的综合信息
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     
     output = "📱 ninchat 热点看板\n"
     output += "=" * 40 + "\n\n"
@@ -680,7 +680,7 @@ def realtime_news_agent(topic: str = "") -> str:
     Returns:
         新闻摘要
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     NINCHAT_API_KEY = os.getenv("ninchat_api_key", "")
     
     query = topic if topic else "最新重要新闻"
@@ -729,7 +729,7 @@ def ai_comment_deep_dive() -> str:
     Returns:
         深度分析报告
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     NINCHAT_API_KEY = os.getenv("ninchat_api_key", "")
     
     try:
@@ -799,7 +799,7 @@ def track_event(keyword: str, hours: int = 24) -> str:
     Returns:
         事件追踪报告
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     NINCHAT_API_KEY = os.getenv("ninchat_api_key", "")
     
     try:
@@ -851,7 +851,7 @@ def batch_search(topics: list) -> dict:
     Returns:
         各主题结果汇总
     """
-    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://www.ninchat.cn")
+    NINCHAT_BASE_URL = os.getenv("ninchat_base_url", "https://ninchat-api.cpolar.top")
     NINCHAT_API_KEY = os.getenv("ninchat_api_key", "")
     
     results = {}
